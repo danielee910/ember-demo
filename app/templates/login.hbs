@@ -1,0 +1,15 @@
+<form>
+  <div>
+    <label>Username</label>
+    {{input type="text" value=username}}
+  </div>
+  <div>
+    <label>Password</label>
+    {{input type="password" value=password}}
+  </div>
+  <button {{action 'login'}}>Login</button> <br>
+  {{#link-to 'register'}}
+    Don't have an account? Register here!
+  {{/link-to}}
+  <p>{{ message }}</p>
+</form>
