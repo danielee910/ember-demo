@@ -1,15 +1,30 @@
-<form>
-  <div>
-    <label>Username</label>
-    {{input type="text" value=username}}
+<div class="all-wrapper menu-side with-pattern">
+  <div class="auth-box-w">
+    <div class="logo-w login-logo">
+      {{#link-to 'dashboard'}}
+        <img alt="" src="/assets/img/logo.png">
+      {{/link-to}}
+    </div>
+    <hr/>
+    <form action="">
+      <div class="form-group">
+        <label for="">Username</label>
+        {{input type="text" class="form-control" placeholder="Enter your username" value=username}}
+        <div class="pre-icon os-icon os-icon-user-male-circle"></div>
+      </div>
+      <div class="form-group">
+        <label for="">Password</label>
+        {{input type="password" class="form-control" placeholder="Enter your password" value=password}}
+        <div class="pre-icon os-icon os-icon-fingerprint"></div>
+      </div>
+      <div class="buttons-w text-center">
+        <button class="btn btn-primary" {{action 'login'}}>Login</button>
+        <div class="signup-link">
+          {{#link-to 'register'}}
+            Don't have an account?
+          {{/link-to}}
+        </div>
+      </div>
+    </form>
   </div>
-  <div>
-    <label>Password</label>
-    {{input type="password" value=password}}
-  </div>
-  <button {{action 'login'}}>Login</button> <br>
-  {{#link-to 'register'}}
-    Don't have an account? Register here!
-  {{/link-to}}
-  <p>{{ message }}</p>
-</form>
+</div>

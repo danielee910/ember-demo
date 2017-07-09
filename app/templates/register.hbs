@@ -1,16 +1,40 @@
-<form>
-  <div>
-    <label>Username</label>
-    {{input value=username}}
+<div class="all-wrapper menu-side with-pattern">
+  <div class="auth-box-w wider">
+    <div class="logo-w login-logo">
+      {{#link-to 'dashboard'}}
+        <img alt="" src="/assets/img/logo.png">
+      {{/link-to}}
+    </div>
+    <hr/>
+    <form action="">
+      <div class="form-group">
+        <label for=""> Email address</label>
+        {{input class="form-control" placeholder="Enter email" type="email" value=username}}
+        <div class="pre-icon os-icon os-icon-email-2-at2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for=""> Password</label>
+            {{input class="form-control" placeholder="Password" value=password type="password"}}
+            <div class="pre-icon os-icon os-icon-fingerprint"></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for=""> Confirm </label>
+            {{input class="form-control" placeholder="Password" value=password type="password"}}
+          </div>
+        </div>
+      </div>
+      <div class="buttons-w text-center">
+        <button class="btn btn-primary" {{action 'register'}}>Register Now</button>
+        <div class="signup-link">
+          {{#link-to 'login'}}
+            Already have an account? Please sign in!
+          {{/link-to}}
+        </div>
+      </div>
+    </form>
   </div>
-  <div>
-    <label>Password</label>
-    {{input value=password type="password"}}
-  </div>
-  <button {{action 'register'}}>Register</button> <br>
-  {{#link-to 'login'}}
-    Already have an account? Please sign in!
-  {{/link-to}}
-
-  <p>{{message}}</p>
-</form>
+</div>

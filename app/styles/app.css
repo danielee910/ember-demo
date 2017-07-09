@@ -1,0 +1,29 @@
+/*login container*/
+.auth-box-w {
+  background-color:rgba(255, 255, 255, 0.41);
+}
+.auth-box-w .logo-w {
+  padding: 30px 0px 10px 0px;
+}
+.login-logo img{
+  width: 100px;
+  height: auto;
+}
+.signup-link{
+  padding: 10px 0px;
+}
+.auth-box-w form {
+  padding-bottom: 50px;
+}
+
+/*signup form*/
+.tuna-darkblue {
+  background: none;
+  background-color: #fff;
+}
+.tuna-signup-left {
+  opacity: 0.9;
+}
+.tuna-signup-right {
+  overflow: hidden;
+}

@@ -12,7 +12,6 @@ export default Ember.Service.extend({
   },
 
   isAuthenticated() {
-    console.log(this.get('token'));
     return this.get('token');
   },
 
@@ -36,7 +35,7 @@ export default Ember.Service.extend({
   },
 
   authenticate(username, password) {
-    return new RSVP.Promise((resolve, reject) => {
+    return new RSVP.Promise((resolve) => {
       if (this.get('users').any((user) => user.name === username && user.password === password)) {
         const token = username + Date.now();
         this.setToken('token', token);
