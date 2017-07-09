@@ -12,6 +12,7 @@ export default Ember.Service.extend({
   },
 
   isAuthenticated() {
+    console.log(this.get('token'));
     return this.get('token');
   },
 
@@ -48,7 +49,7 @@ export default Ember.Service.extend({
 
   logout() {
     return new RSVP.Promise((resolve, reject) => {
-      this.setToken('token', '');
+      this.setToken('');
       resolve();
     })
   },
