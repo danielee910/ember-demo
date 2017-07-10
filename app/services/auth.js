@@ -44,7 +44,6 @@ export default Ember.Service.extend({
     return new RSVP.Promise((resolve, reject) => {
       if (this.get('users').any((user) => user.username === username && user.password === password)) {
         const token = username + Date.now();
-        console.log(token);
         this.setToken('token', token);
         resolve({token});
       } else {

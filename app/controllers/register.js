@@ -46,7 +46,6 @@ export default Ember.Controller.extend(EmberValidations, {
   actions: {
     register() {
       this.validate().then(()=>{
-        console.log(this.get('confirmPassword'));
         if (!this.get('confirmPassword')) {
           this.set('showErrors', false);
           this.get('session').registerUser(this.get('form')).then(() => {
