@@ -15,15 +15,17 @@
 .auth-box-w form {
   padding-bottom: 50px;
 }
-
-/*signup form*/
-.tuna-darkblue {
-  background: none;
-  background-color: #fff;
+.mobile-phone {
+  position: relative;
 }
-.tuna-signup-left {
-  opacity: 0.9;
+.phone-prefix {
+  position: absolute;
+  top: 39px;
+  left: 16px;
+  color: #666;
+  text-align: right;
+  width: 48px;
 }
-.tuna-signup-right {
-  overflow: hidden;
+.mobile-phone input {
+  padding-left: 66px;
 }

@@ -9,14 +9,21 @@
     <form action="">
       <div class="form-group">
         <label for="">Username</label>
-        {{input type="text" class="form-control" placeholder="Enter your username" value=username}}
+        {{input type="text" class="form-control" placeholder="Enter your username" value=form.username}}
         <div class="pre-icon os-icon os-icon-user-male-circle"></div>
+        <div class="error"></div>
       </div>
+      {{#if showErrors}}
+        {{display-errors errors=errors.form.username showErrors=showErrors}}
+      {{/if}}
       <div class="form-group">
         <label for="">Password</label>
-        {{input type="password" class="form-control" placeholder="Enter your password" value=password}}
+        {{input type="password" class="form-control" placeholder="Enter your password" value=form.password}}
         <div class="pre-icon os-icon os-icon-fingerprint"></div>
       </div>
+      {{#if showErrors}}
+        {{display-errors errors=errors.form.password showErrors=showErrors}}
+      {{/if}}
       <div class="buttons-w text-center">
         <button class="btn btn-primary" {{action 'login'}}>Login</button>
         <div class="signup-link">

@@ -20,14 +20,20 @@ export default Ember.Service.extend({
     this.saveToken();
   },
 
-  registerUser(username, password) {
+  registerUser(info) {
     return new RSVP.Promise((resolve, reject) => {
-      if (!username || !password
-          || this.get('users').any((user) => user.name === username && user.password === password)) {
+      if (!info || this.get('users').any((user) => user.name === info.username)) {
         reject();
       } else {
-        let users = this.get('users');
-        users.pushObject({name: username, password});
+        const users = this.get('users');
+        let { username, company, country_code, mobile, password, email } = info;
+        users.pushObject({
+          username,
+          company,
+          password,
+          email,
+          mobile: country_code.substr(1) + mobile
+        });
         this.saveUsers();
         resolve({name: username, password});
       }
@@ -35,9 +41,10 @@ export default Ember.Service.extend({
   },
 
   authenticate(username, password) {
-    return new RSVP.Promise((resolve) => {
-      if (this.get('users').any((user) => user.name === username && user.password === password)) {
+    return new RSVP.Promise((resolve, reject) => {
+      if (this.get('users').any((user) => user.username === username && user.password === password)) {
         const token = username + Date.now();
+        console.log(token);
         this.setToken('token', token);
         resolve({token});
       } else {
@@ -47,7 +54,7 @@ export default Ember.Service.extend({
   },
 
   logout() {
-    return new RSVP.Promise((resolve, reject) => {
+    return new RSVP.Promise((resolve) => {
       this.setToken('');
       resolve();
     })
